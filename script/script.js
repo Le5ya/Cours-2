@@ -58,6 +58,7 @@ const toggleMenu = () => {
          menu = document.querySelector('menu'),
          closeBtn = document.querySelector('.close-btn'),
          menuItems = menu.querySelectorAll('ul>li'),
+
          anchors = document.querySelectorAll('a.scroll-to');
 
 const handlerMenu = () => {
@@ -74,6 +75,8 @@ const handlerMenu = () => {
 
    
 
+
+};
 toggleMenu();
 
 // popup
