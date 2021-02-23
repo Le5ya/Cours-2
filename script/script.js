@@ -4,24 +4,23 @@ window.addEventListener('DOMContentLoaded', function() {
 function countTimer(deadline){
   let timerHours = document.querySelector('#timer-hours'),
       timerMinutes = document.querySelector('#timer-minutes'),
-      timerSeconds = document.querySelector('#timer-seconds'),
-     timerNumbers = document.querySelector('.timer-numbers');
+      timerSeconds = document.querySelector('#timer-seconds');
+    
 
-  function addZero(num) {
-	if (num >= 0 && num <= 9) {
-		return '0' + num;
-	} else {
-		return num;
-	}
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
 }
 
 function getTimeRemaining() {
     let dateStop = new Date(deadline).getTime(),
       dateNow = new Date().getTime(),
       timeRemaining = (dateStop - dateNow) / 1000,
-      seconds = Math.floor(timeRemaining % 60),
-      minutes = Math.floor((timeRemaining / 60) % 60),
-      hours = Math.floor(timeRemaining / 60 / 60);
+      seconds = addZero(Math.floor(timeRemaining % 60)),
+      minutes = addZero(Math.floor((timeRemaining / 60) % 60)),
+      hours = addZero(Math.floor(timeRemaining / 60 / 60));
       return {timeRemaining, hours, minutes, seconds};
 }
  
@@ -50,7 +49,7 @@ function updateClock(){
 }
     countTimer('25 february 2021');
 
-});
+
 
 // меню
 const toggleMenu = () => {
@@ -87,7 +86,7 @@ const handlerMenu = () => {
 toggleMenu();
 
 // popup
-togglePopUp = () => {
+const togglePopUp = () => {
   const popup = document.querySelector('.popup'),
         popupBtn = document.querySelectorAll('.popup-btn'),
         popupClose = document.querySelector('.popup-close');
@@ -123,3 +122,8 @@ if(count < 1000){
  }) 
 };
 togglePopUp();
+
+
+
+});// 'DOMContentLoaded'
+
