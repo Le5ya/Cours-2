@@ -54,10 +54,11 @@ function updateClock(){
 
 // меню
 const toggleMenu = () => {
-   const btnMenu = document.querySelector('.menu');
-         menu = document.querySelector('menu');
-         closeBtn = document.querySelector('.close-btn');
-         menuItems = menu.querySelectorAll('ul>li');
+   const btnMenu = document.querySelector('.menu'),
+         menu = document.querySelector('menu'),
+         closeBtn = document.querySelector('.close-btn'),
+         menuItems = menu.querySelectorAll('ul>li'),
+         anchors = document.querySelectorAll('a.scroll-to');
 
 const handlerMenu = () => {
     if(!menu.style.transform || menu.style.transform ==='translate(-100%)'){
@@ -66,15 +67,13 @@ const handlerMenu = () => {
            menu.style.transform = `translate(-100%)`;
          }
         // menu.classList.toggle('active-menu');
-
     };
    btnMenu.addEventListener('click', handlerMenu);
    closeBtn.addEventListener('click', handlerMenu);
-  
- 
    menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
 
-};
+   
+
 toggleMenu();
 
 // popup
@@ -99,12 +98,12 @@ if(count < 1000){
      let animate = false;
     elem.addEventListener('click', () => {
       popup.style.display = 'block';
-      if(document.body.style.minWidth = '768px') {
+      if(screen.width > 768) {
       slideInterval = requestAnimationFrame(slideAnimate);
       animate = true;
       } else {
         animate = false;
-        cancelAnimationFrame(flyInterval);
+        cancelAnimationFrame(slideInterval);
       } 
     });
   });
