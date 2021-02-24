@@ -53,7 +53,8 @@ function updateClock(){
 
 // меню
 const toggleMenu = () => {
-         menu = document.querySelector('menu'),
+  let   menu = document.querySelector('menu'),
+         btnMenu = document.querySelector('.menu'),
          menuItems = menu.querySelectorAll('ul>li');
 const handlerMenu = () => {
     if(!menu.style.transform || menu.style.transform ==='translate(-100%)'){
@@ -62,8 +63,9 @@ const handlerMenu = () => {
            menu.style.transform = `translate(-100%)`;
          }
     };
+    btnMenu.addEventListener('click', handlerMenu);
  
-  btnMenu.addEventListener('click', (event) =>{
+  menu.addEventListener('click', (event) =>{
     let target = event.target;
     if(target !== menu){
           target = target.parentNode; 
