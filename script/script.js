@@ -187,9 +187,6 @@ const slide = document.querySelectorAll('.portfolio-item'),
      const dotInvisible = (elem, index, strClass) => {
       elem[index].classList.add(strClass); 
      };
-     
-   
-
      const autoPlaySlide = () => {
       
         prevSlide(slide, currentSlide, 'portfolio-item-active');
@@ -222,7 +219,6 @@ const slide = document.querySelectorAll('.portfolio-item'),
         if(!target.matches('.portfolio-btn, .dot')){
           return;
         }
-      
         if(target.matches('#arrow-right')){
           currentSlide++;
         }else if(target.matches('#arrow-left')){  
