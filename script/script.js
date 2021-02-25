@@ -242,9 +242,7 @@ const slide = document.querySelectorAll('.portfolio-item'),
          }
          nextSlide(slide, currentSlide, 'portfolio-item-active');
         nextSlide(dot, currentSlide, 'dot-active'); 
-      
     });
-
      slider.addEventListener('mouseover', (event) => {
         if(event.target.matches('.portfolio-btn') ||
         event.target.matches('.dot')){
