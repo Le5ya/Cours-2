@@ -90,7 +90,7 @@ generateKey() {
 deleteItem() {
  this.todoData.forEach((item) => {
  if(item.textContent === '') {
-   this.todoData.remove(item);
+   this.todoData.removeItem(key);
  }
  this.addToStorage()
  }); 
@@ -99,9 +99,9 @@ deleteItem() {
 completedItem(){
   this.todoData.forEach((item) => {
    this.todoData[item] === this.todoList[item];
-   this.addToStorage();   
+     this.todoData.removeItem(key);
   });
-  
+  this.addToStorage(); 
 }
 
 handler() {
