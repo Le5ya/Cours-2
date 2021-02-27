@@ -121,15 +121,17 @@ this.todoList.addEventListener('click', (event) => {
     } else {
     if (target.closest('.todo-item') && target.classList.contains('todo-edit')){
       //target = target.closest('.todo-item'); 
-    if (true){
-        let textTarget = target.closest('.todo-item').querySelector('.text-todo'); 
-        if (true){
+      let textTarget = target.closest('.todo-item').querySelector('.text-todo'); 
+      if (true){
         let x = prompt("Заменить текст", textTarget.innerHTML);
         if (x == null || x == ""){
           return
         }
         textTarget.innerHTML = x;
       }
+    if (false){
+        
+      
       if (this.todoList.LastFieldEdited != null &&
           this.todoList.LastFieldEdited != textTarget){
             this.todoList.LastFieldEdited.disabled = true;
