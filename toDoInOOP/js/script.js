@@ -5,6 +5,8 @@ class Todo {
     this.input =document.querySelector('input');
     this.todoList = document.querySelector('.todo-list');
     this.todoCompleted = document.querySelector('.todo-completed');
+    this.LastFieldEdited = null;
+    this.LastFieldEditedPrevText = "";
     this.todoData = new Map(JSON.parse(localStorage.getItem('toDoList')));
 
   
@@ -26,13 +28,41 @@ class Todo {
     const li = document.createElement('li');
     li.classList.add('todo-item');
     li.key = todo.key;
+    /*
     li.insertAdjacentHTML('beforeend', `
     		<span class="text-todo">${todo.value}</span>
 				<div class="todo-buttons">
+					<button class="todo-edit"></button>
+					<button class="todo-remove"></button>
+					<button class="todo-complete"></button>
+				</div>
+
+      */
+     li.insertAdjacentHTML('beforeend', `
+        <form class="todo-text-control">
+    		<label><input class="text-todo" value="${todo.value}" disabled=true ></label>
+        </form>
+				<div class="todo-buttons">
+					<button class="todo-edit"></button>
 					<button class="todo-remove"></button>
 					<button class="todo-complete"></button>
 				</div>
     `);
+    if (false){
+    let formTarget = li.closest('.todo-item').querySelector('.todo-text-control');
+    let textTarget = li.closest('.todo-item').querySelector('.text-todo'); 
+    function fun_submit(e){
+        e.preventDefault();
+        //console.log("cactus");
+        if (textTarget.value == ""){
+          textTarget.value = this.todoList.LastFieldEditedPrevText;
+        }
+        textTarget.disabled = true;
+        let sel = document.getSelection();
+        sel.removeAllRanges();
+    }
+    formTarget.addEventListener('submit', fun_submit.bind(this));
+    }
 
     if(todo.completed) {
       this.todoCompleted.append(li);
@@ -60,7 +90,7 @@ generateKey() {
 deleteItem() {
  this.todoData.forEach((item) => {
  if(item.textContent === '') {
-   remove(item);
+   this.todoData.remove(item);
  }
  this.addToStorage()
  }); 
@@ -68,7 +98,7 @@ deleteItem() {
 }
 completedItem(){
   this.todoData.forEach((item) => {
-   todoData[item] === todoList[item];
+   this.todoData[item] === this.todoList[item];
    this.addToStorage();   
   });
   
@@ -88,6 +118,43 @@ this.todoList.addEventListener('click', (event) => {
         target.textContent = '';
        target.remove();
          this.deleteItem();
+    } else {
+    if (target.closest('.todo-item') && target.classList.contains('todo-edit')){
+      //target = target.closest('.todo-item'); 
+    if (true){
+        let textTarget = target.closest('.todo-item').querySelector('.text-todo'); 
+        if (true){
+        let x = prompt("Заменить текст", textTarget.innerHTML);
+        if (x == null || x == ""){
+          return
+        }
+        textTarget.innerHTML = x;
+      }
+      if (this.todoList.LastFieldEdited != null &&
+          this.todoList.LastFieldEdited != textTarget){
+            this.todoList.LastFieldEdited.disabled = true;
+            this.todoList.LastFieldEdited = null;
+      }
+      textTarget.disabled = !textTarget.disabled;
+      if (textTarget.disabled){
+        if (textTarget.value == ""){
+          textTarget.value = this.todoList.LastFieldEditedPrevText;
+        }
+        this.todoList.LastFieldEdited = null;
+        return
+      }
+    this.todoList.LastFieldEdited = textTarget;
+    this.todoList.LastFieldEditedPrevText = textTarget.value;
+    textTarget.focus();
+    textTarget.select();
+    }
+
+      /*let newInput = document.createElement('input');
+          newInput.value = target.textHTML;
+          target.textHTML = '';
+          target;
+      */
+    }  
     }
   };
   //  console.log(target);
