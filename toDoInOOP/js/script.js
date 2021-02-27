@@ -63,8 +63,7 @@ deleteItem() {
    remove(item);
  }
  this.addToStorage()
- }); 
-
+ }); git statu
 }
 completedItem(){
   this.todoData.forEach((item) => {
