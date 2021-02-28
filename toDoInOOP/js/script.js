@@ -63,11 +63,11 @@ deleteItem() {
    remove(item);
  }
  this.addToStorage()
- }); git statu
+ }); 
 }
 completedItem(){
   this.todoData.forEach((item) => {
-   todoData[item] === todoList[item];
+   this.todoData[item] === this.todoList[item];
    this.addToStorage();   
   });
   
