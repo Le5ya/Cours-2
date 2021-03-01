@@ -258,5 +258,53 @@ const slide = document.querySelectorAll('.portfolio-item'),
 };
 slider();
 
+// classes, attribites
+
+const commandPhoto = document.querySelectorAll('.command__photo');
+
+for(let i=0; i<=commandPhoto.length-1; i++){
+  commandPhoto[i].addEventListener('mouseenter', (event) => {
+    let tmp = event.target.src;
+    event.target.src = event.target.dataset.img; 
+    event.target.dataset.img = tmp; 
+});
+  commandPhoto[i].addEventListener('mouseout', (event) => {
+    let tmp = event.target.src;
+    event.target.src = event.target.dataset.img; 
+    event.target.dataset.img = tmp;    
+});
+}
+
+let 
+calcItem = document.querySelectorAll('.calc-item'), 
+
+topForm = document.querySelectorAll('.top-form'),
+form3Name = document.getElementById('form3-name'),
+form2Name = document.getElementById('form2-name'),
+form2Message = document.getElementById('form2-message'),
+form2Phone = document.getElementById('form2-phone'),
+form2Email = document.getElementById('form2-email');
+
+
+calcItem.forEach((item) => {
+  item.addEventListener('input', () => item.value = item.value.replace(/\D/g, ''));
+});
+form3Name.addEventListener('input', () => form3Name.value = form3Name.value.replace(/\w/g, ''));
+form2Name.addEventListener('input', () => form2Name.value = form2Name.value.replace(/\w/g, ''));
+form2Name.addEventListener('blur', () => form2Name.value = form2Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase));
+form2Message.addEventListener('input', () => form2Message.value = form2Message.value.replace(/\w/g, ''));
+form2Phone.addEventListener('input', () => form2Phone.value = form2Phone.value.replace(/\D[^()-]/g, ''));
+form2Email.addEventListener('input', () =>form2Email.value =  
+form2Email.value.replace(/[а-яА-ЯёЁ#$%&{}():;"\]\[]=\//gi, ''));
+
+topForm.forEach((item) => {
+  item.addEventListener('blur', () => 
+topForm.value = topForm.value.replace(/(\s\s)(\s\b)()/g, '(\s)(\S\b)'));
+})
+
+
+
+
+
 });// 'DOMContentLoaded'
 
