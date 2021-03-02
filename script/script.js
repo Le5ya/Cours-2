@@ -299,11 +299,50 @@ form2Email.value.replace(/[а-яА-ЯёЁ#$%&{}():;"\]\[]=\//gi, ''));
 
 topForm.forEach((item) => {
   item.addEventListener('blur', () => 
-topForm.value = topForm.value.replace(/(\s\s)(\s\b)()/g, '(\s)(\S\b)'));
+topForm.value = topForm.value.replace(/(\s\s)(\b\s)()/g, '(\s)(\b\S)'));
 })
 
+//калькулятор
+
+const calc = (price = 100) => {
+const calcBlolck = document.querySelector('.calc-block'),
+      calcType = document.querySelector('.calc-type'),
+      calcSquare = document.querySelector('.calc-square'),
+      calcDay = document.querySelector('.calc-day'),
+      calcCount = document.querySelector('.calc-count'),
+      totalValue = document.getElementById('total');
+
+  const countSum = () => {
+    let total = 0,
+    countValue = 1,
+    dayValue = 1;
+    const typeValue=calcType.options[calcType.selectedIndex].value,
+          squareValue = +calcSquare.value;
+
+      if(calcCount.value > 1){
+        countValue += (calcCount.value - 1) / 10;
+      }
+      if(calcDay.value &&  calcDay.value < 5){
+        dayValue *= 2;
+      }else if(calcDay.value &&  calcDay.value < 10){
+        dayValue *= 1.5;
+      }
+      if(typeValue && squareValue){
+        total = price * typeValue * squareValue*countValue*dayValue;
+      } 
 
 
+    totalValue.textContent = total;
+  };
+
+     calcBlolck.addEventListener('change', (event) =>{
+        const target = event.target;
+         if (target.matches('select') || target.matches('input')){
+        countSum();
+    }
+   });
+ };
+ calc(100);
 
 
 });// 'DOMContentLoaded'
