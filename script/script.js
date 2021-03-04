@@ -259,7 +259,6 @@ const slide = document.querySelectorAll('.portfolio-item'),
 slider();
 
 // classes, attribites
-
 const commandPhoto = document.querySelectorAll('.command__photo');
 
 for(let i=0; i<=commandPhoto.length-1; i++){
@@ -295,11 +294,11 @@ form2Name.addEventListener('blur', () => form2Name.value = form2Name.value.repla
 form2Message.addEventListener('input', () => form2Message.value = form2Message.value.replace(/\w/g, ''));
 form2Phone.addEventListener('input', () => form2Phone.value = form2Phone.value.replace(/\D[^()-]/g, ''));
 form2Email.addEventListener('input', () =>form2Email.value =  
-form2Email.value.replace(/[а-яА-ЯёЁ#$%&{}():;"\]\[]=\//gi, ''));
+form2Email.value.replace(/[^w\.@]/gi, ''));
 
 topForm.forEach((item) => {
   item.addEventListener('blur', () => 
-topForm.value = topForm.value.replace(/(\s\s)(\b\s)()/g, '(\s)(\b\S)'));
+topForm.value = topForm.value.replace(/(^\s)(\s\s)()/g, '(^\S)(\s)'));
 })
 
 //калькулятор
@@ -343,6 +342,88 @@ const calcBlolck = document.querySelector('.calc-block'),
    });
  };
  calc(100);
+
+ //send-ajaxconst 
+const sendForm = () => {
+   const errorMessage = 'Что-то пошло не так...',
+         loadMessage = 'Загрузка...',
+         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+
+    const form = document.getElementById('form1');
+    const footerForm = document.getElementById('form2');
+    const modalForm = document.getElementById('form3');
+    const statusMessage = document.createElement('div');
+    statusMessage.style.cssText = 'font-size: 2rem';
+     
+    form.addEventListener('submit', (event) => {
+       event.preventDefault();
+       form.appendChild(statusMessage);
+       statusMessage.textContent = loadMessage;
+       const formData = new FormData(form);
+        let body = {};
+       formData.forEach((val, key) => {
+       body[key] = val;
+      });
+      postData(body, () => {
+         statusMessage.textContent = successMessage;
+      }, (error) => {
+        statusMessage.textContent = errorMessage; 
+        console.log(error);
+      });
+    }); 
+    modalForm.addEventListener('submit', (event) => {
+       event.preventDefault();
+       modalForm.appendChild(statusMessage);
+       statusMessage.textContent = loadMessage;
+       const modalFormData = new ModalFormData(form);
+        let modalBody = {};
+    modalFormData.forEach((val, key) => {
+       modalBody[key] = val;
+      });
+      postData(modalBody, () => {
+         statusMessage.textContent = successMessage;
+      }, (error) => {
+        statusMessage.textContent = errorMessage; 
+        console.log(error);
+      });
+    });
+    footerForm.addEventListener('submit', (event) => {
+       event.preventDefault();
+       footerForm.appendChild(statusMessage);
+       statusMessage.textContent = loadMessage;
+       const footerFormData = new FooterFormData(form);
+        let footerBody = {};
+    footerFormData.forEach((val, key) => {
+       footerBody[key] = val;
+      });
+      postData(footerBody, () => {
+         statusMessage.textContent = successMessage;
+      }, (error) => {
+        statusMessage.textContent = errorMessage; 
+        console.log(error);
+      });
+    }); 
+      const postData =(body,footerBody, modalBody, outputData, errorData) => {
+          const request = new XMLHttpRequest();
+          request.addEventListener('readystatechange', () =>{
+          if(request.readyState !== 4) {
+            return;
+          }
+          if(request.status === 200) {
+            outputData(); 
+          }else {
+            errorData(request.status);  
+          }
+    request.open('POST', './server.php');
+    request.setRequestHeader('Content-Type', 'multipart/application/json');
+    request.send(JSON.stringify(body));
+    request.send(JSON.stringify(footerBody));
+    request.send(JSON.stringify(modalBody));
+       }); 
+      };
+    };
+ sendForm();
+ 
 
 
 });// 'DOMContentLoaded'
