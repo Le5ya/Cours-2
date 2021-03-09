@@ -520,7 +520,41 @@ const sendFormFooter = () => {
   
  sendFormFooter();
 
- 
+
+  const statusMessage = document.createElement('div');
+  statusMessage.style.cssText = `font-size: 2rem; margin: 1rem 0`;
+  
+  const form = document.getElementById('form1');
+     form.addEventListener('submit', (event) => {
+       event.preventDefault();
+       form.appendChild(statusMessage);
+       statusMessage.textContent = loadMessage;
+       const formData = new FormData(form);
+       statusMessage.textContent = successMessage;
+
+      postData(formData)
+      .then((response) => {
+        if(response.status !== 200){
+          throw new Error('status network not 200');
+        }
+          statusMessage.textContent = successMessage;
+      })
+      .catch((error) => {
+        statusMessage.textContent = errorMessage;
+        console.error(error);
+      });
+    });
+
+    const postData = (body) => {
+      return fetch('/.server.php',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body),
+        body: formData(body),
+        credentials: 'include'
+      });
 
 
      
