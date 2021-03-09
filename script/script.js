@@ -343,87 +343,192 @@ const calcBlolck = document.querySelector('.calc-block'),
  };
  calc(100);
 
- //send-ajaxconst 
+ //send-ajax-form
+
+
+
 const sendForm = () => {
    const errorMessage = 'Что-то пошло не так...',
          loadMessage = 'Загрузка...',
          successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
 
     const form = document.getElementById('form1');
-    const footerForm = document.getElementById('form2');
-    const modalForm = document.getElementById('form3');
+
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 2rem';
      
     form.addEventListener('submit', (event) => {
        event.preventDefault();
        form.appendChild(statusMessage);
-       statusMessage.textContent = loadMessage;
+
+       const request = new XMLHttpRequest();
+       request.addEventListener('readystatechange', () =>{
+        statusMessage.textContent = loadMessage;
+          if(request.readyState !== 4) {
+                return;
+            }
+            if(request.status === 200) {
+              statusMessage.textContent = successMessage;
+            }else {
+              statusMessage.textContent = errorMessage; 
+              console.error(request.status);
+        }
+      });
+       request.open('POST', './server.php');
+       request.setRequestHeader('Content-Type', 'application/json');
        const formData = new FormData(form);
-        let body = {};
+       let body = {};
+
        formData.forEach((val, key) => {
        body[key] = val;
-      });
-      postData(body, () => {
-         statusMessage.textContent = successMessage;
-      }, (error) => {
-        statusMessage.textContent = errorMessage; 
-        console.log(error);
-      });
-    }); 
-    modalForm.addEventListener('submit', (event) => {
-       event.preventDefault();
-       modalForm.appendChild(statusMessage);
-       statusMessage.textContent = loadMessage;
-       const modalFormData = new ModalFormData(form);
-        let modalBody = {};
-    modalFormData.forEach((val, key) => {
-       modalBody[key] = val;
-      });
-      postData(modalBody, () => {
-         statusMessage.textContent = successMessage;
-      }, (error) => {
-        statusMessage.textContent = errorMessage; 
-        console.log(error);
-      });
+       });
+
+       request.send(JSON.stringify(body));
+
+   
     });
-    footerForm.addEventListener('submit', (event) => {
-       event.preventDefault();
-       footerForm.appendChild(statusMessage);
-       statusMessage.textContent = loadMessage;
-       const footerFormData = new FooterFormData(form);
-        let footerBody = {};
-    footerFormData.forEach((val, key) => {
-       footerBody[key] = val;
-      });
-      postData(footerBody, () => {
-         statusMessage.textContent = successMessage;
-      }, (error) => {
-        statusMessage.textContent = errorMessage; 
-        console.log(error);
-      });
-    }); 
-      const postData =(body,footerBody, modalBody, outputData, errorData) => {
-          const request = new XMLHttpRequest();
-          request.addEventListener('readystatechange', () =>{
-          if(request.readyState !== 4) {
-            return;
-          }
-          if(request.status === 200) {
-            outputData(); 
-          }else {
-            errorData(request.status);  
-          }
-    request.open('POST', './server.php');
-    request.setRequestHeader('Content-Type', 'multipart/application/json');
-    request.send(JSON.stringify(body));
-    request.send(JSON.stringify(footerBody));
-    request.send(JSON.stringify(modalBody));
-       }); 
-      };
-    };
+ };
+  
  sendForm();
+const sendForm = () => {
+   const errorMessage = 'Что-то пошло не так...',
+         loadMessage = 'Загрузка...',
+         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+
+    const form = document.getElementById('form1');
+
+    const statusMessage = document.createElement('div');
+    statusMessage.style.cssText = 'font-size: 2rem';
+     
+    form.addEventListener('submit', (event) => {
+       event.preventDefault();
+       form.appendChild(statusMessage);
+
+       const request = new XMLHttpRequest();
+       request.addEventListener('readystatechange', () =>{
+        statusMessage.textContent = loadMessage;
+          if(request.readyState !== 4) {
+                return;
+            }
+            if(request.status === 200) {
+              statusMessage.textContent = successMessage;
+            }else {
+              statusMessage.textContent = errorMessage; 
+              console.error(request.status);
+        }
+      });
+       request.open('POST', './server.php');
+       request.setRequestHeader('Content-Type', 'application/json');
+       const formData = new FormData(form);
+       let body = {};
+
+       formData.forEach((val, key) => {
+       body[key] = val;
+       });
+
+       request.send(JSON.stringify(body));
+
+   
+    });
+ };
+  
+sendForm();
+const sendFormModal = () => {
+   const errorMessage = 'Что-то пошло не так...',
+         loadMessage = 'Загрузка...',
+         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+
+    const form = document.getElementById('form2');
+
+    const statusMessage = document.createElement('div');
+    statusMessage.style.cssText = 'font-size: 2rem';
+     
+    form.addEventListener('submit', (event) => {
+       event.preventDefault();
+       form.appendChild(statusMessage);
+
+       const request = new XMLHttpRequest();
+       request.addEventListener('readystatechange', () =>{
+        statusMessage.textContent = loadMessage;
+          if(request.readyState !== 4) {
+                return;
+            }
+            if(request.status === 200) {
+              statusMessage.textContent = successMessage;
+            }else {
+              statusMessage.textContent = errorMessage; 
+              console.error(request.status);
+        }
+      });
+       request.open('POST', './server.php');
+       request.setRequestHeader('Content-Type', 'application/json');
+       const formData = new FormData(form);
+       let body = {};
+
+       formData.forEach((val, key) => {
+       body[key] = val;
+       });
+
+       request.send(JSON.stringify(body));
+
+   
+    });
+ };
+  
+ sendFormModal();
+const sendFormFooter = () => {
+   const errorMessage = 'Что-то пошло не так...',
+         loadMessage = 'Загрузка...',
+         successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
+
+    const form = document.getElementById('form3');
+
+    const statusMessage = document.createElement('div');
+    statusMessage.style.cssText = 'font-size: 2rem';
+     
+    form.addEventListener('submit', (event) => {
+       event.preventDefault();
+       form.appendChild(statusMessage);
+
+       const request = new XMLHttpRequest();
+       request.addEventListener('readystatechange', () =>{
+        statusMessage.textContent = loadMessage;
+          if(request.readyState !== 4) {
+                return;
+            }
+            if(request.status === 200) {
+              statusMessage.textContent = successMessage;
+            }else {
+              statusMessage.textContent = errorMessage; 
+              console.error(request.status);
+        }
+      });
+       request.open('POST', './server.php');
+       request.setRequestHeader('Content-Type', 'application/json');
+       const formData = new FormData(form);
+       let body = {};
+
+       formData.forEach((val, key) => {
+       body[key] = val;
+       });
+
+       request.send(JSON.stringify(body));
+
+   
+    });
+ };
+  
+ sendFormFooter();
+
  
+
+
+     
+
+
+
+    
+
 
 
 });// 'DOMContentLoaded'
