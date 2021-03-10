@@ -9,7 +9,7 @@ import calc from './modules/calc';
 import sendForm from './modules/sendForm';
 
 //Timer
-countTimer();
+countTimer('15 march 2021');
 // меню
 toggleMenu();
 // popup
