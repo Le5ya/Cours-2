@@ -1,5 +1,4 @@
-function countTimer(deadline){
-  
+function countTimer(deadline = '31 march 2021'){
   let timerHours = document.querySelector('#timer-hours'),
       timerMinutes = document.querySelector('#timer-minutes'),
       timerSeconds = document.querySelector('#timer-seconds'),
@@ -45,5 +44,5 @@ function updateClock(){
 
   }
      updateClock();
-};
+}
 export default countTimer;

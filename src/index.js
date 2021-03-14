@@ -4,12 +4,14 @@ import toggleMenu from './modules/toggleMenu';
 import togglePopUp from './modules/togglePopUp';
 import tabs from './modules/tabs';
 import slider from './modules/slider';
-import photos from './modules/photos';
+import twoCommands from './modules/twoCommands';
 import calc from './modules/calc';
 import sendForm from './modules/sendForm';
+import sendFormModal from './modules/sendFormModal';
+import sendFormFooter from './modules/sendFormFooter';
 
 //Timer
-countTimer('15 march 2021');
+countTimer();
 // меню
 toggleMenu();
 // popup
@@ -19,11 +21,15 @@ tabs();
 // slider
 slider();
 // classes, attribites
-photos();
+twoCommands();
 //калькулятор
  calc();
  //send-ajax-form
  sendForm();
+
+ sendFormModal();
+
+ sendFormFooter();
 
 
 

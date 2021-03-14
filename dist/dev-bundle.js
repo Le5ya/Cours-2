@@ -38,7 +38,7 @@ eval("\nmodule.exports = function () {\n\treturn /[\\u001b\\u009b][[()#;?]*(?:[0
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_countTimer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/countTimer */ \"./src/modules/countTimer.js\");\n/* harmony import */ var _modules_toggleMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/toggleMenu */ \"./src/modules/toggleMenu.js\");\n/* harmony import */ var _modules_togglePopUp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/togglePopUp */ \"./src/modules/togglePopUp.js\");\n/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tabs */ \"./src/modules/tabs.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ \"./src/modules/slider.js\");\n/* harmony import */ var _modules_photos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/photos */ \"./src/modules/photos.js\");\n/* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ \"./src/modules/calc.js\");\n/* harmony import */ var _modules_sendForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/sendForm */ \"./src/modules/sendForm.js\");\n\n\n\n\n\n\n\n\n\n //Timer\n\n(0,_modules_countTimer__WEBPACK_IMPORTED_MODULE_0__.default)(); // меню\n\n(0,_modules_toggleMenu__WEBPACK_IMPORTED_MODULE_1__.default)(); // popup\n\n(0,_modules_togglePopUp__WEBPACK_IMPORTED_MODULE_2__.default)(); //tabs\n\n(0,_modules_tabs__WEBPACK_IMPORTED_MODULE_3__.default)(); // slider\n\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__.default)(); // classes, attribites\n\n(0,_modules_photos__WEBPACK_IMPORTED_MODULE_5__.default)(); //калькулятор\n\n(0,_modules_calc__WEBPACK_IMPORTED_MODULE_6__.default)(); //send-ajax-form\n\n(0,_modules_sendForm__WEBPACK_IMPORTED_MODULE_7__.default)();\n\n//# sourceURL=webpack://CoursJS-Slider/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_countTimer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/countTimer */ \"./src/modules/countTimer.js\");\n/* harmony import */ var _modules_toggleMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/toggleMenu */ \"./src/modules/toggleMenu.js\");\n/* harmony import */ var _modules_togglePopUp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/togglePopUp */ \"./src/modules/togglePopUp.js\");\n/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tabs */ \"./src/modules/tabs.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ \"./src/modules/slider.js\");\n/* harmony import */ var _modules_twoCommands__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/twoCommands */ \"./src/modules/twoCommands.js\");\n/* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ \"./src/modules/calc.js\");\n/* harmony import */ var _modules_sendForm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/sendForm */ \"./src/modules/sendForm.js\");\n/* harmony import */ var _modules_sendFormModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/sendFormModal */ \"./src/modules/sendFormModal.js\");\n/* harmony import */ var _modules_sendFormFooter__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/sendFormFooter */ \"./src/modules/sendFormFooter.js\");\n\n\n\n\n\n\n\n\n\n\n\n //Timer\n\n(0,_modules_countTimer__WEBPACK_IMPORTED_MODULE_0__.default)(); // меню\n\n(0,_modules_toggleMenu__WEBPACK_IMPORTED_MODULE_1__.default)(); // popup\n\n(0,_modules_togglePopUp__WEBPACK_IMPORTED_MODULE_2__.default)(); //tabs\n\n(0,_modules_tabs__WEBPACK_IMPORTED_MODULE_3__.default)(); // slider\n\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__.default)(); // classes, attribites\n\n(0,_modules_twoCommands__WEBPACK_IMPORTED_MODULE_5__.default)(); //калькулятор\n\n(0,_modules_calc__WEBPACK_IMPORTED_MODULE_6__.default)(); //send-ajax-form\n\n(0,_modules_sendForm__WEBPACK_IMPORTED_MODULE_7__.default)();\n(0,_modules_sendFormModal__WEBPACK_IMPORTED_MODULE_8__.default)();\n(0,_modules_sendFormFooter__WEBPACK_IMPORTED_MODULE_9__.default)();\n\n//# sourceURL=webpack://CoursJS-Slider/./src/index.js?");
 
 /***/ }),
 
@@ -49,7 +49,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar calc = function calc() {\n  var price = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100;\n  var calcBlolck = document.querySelector('.calc-block'),\n      calcType = document.querySelector('.calc-type'),\n      calcSquare = document.querySelector('.calc-square'),\n      calcDay = document.querySelector('.calc-day'),\n      calcCount = document.querySelector('.calc-count'),\n      totalValue = document.getElementById('total');\n\n  var countSum = function countSum() {\n    var total = 0,\n        countValue = 1,\n        dayValue = 1;\n    var typeValue = calcType.options[calcType.selectedIndex].value,\n        squareValue = +calcSquare.value;\n\n    if (calcCount.value > 1) {\n      countValue += (calcCount.value - 1) / 10;\n    }\n\n    if (calcDay.value && calcDay.value < 5) {\n      dayValue *= 2;\n    } else if (calcDay.value && calcDay.value < 10) {\n      dayValue *= 1.5;\n    }\n\n    if (typeValue && squareValue) {\n      total = price * typeValue * squareValue * countValue * dayValue;\n    }\n\n    totalValue.textContent = total;\n  };\n\n  calcBlolck.addEventListener('change', function (event) {\n    var target = event.target;\n\n    if (target.matches('select') || target.matches('input')) {\n      countSum();\n    }\n  });\n  var calcItem = document.querySelectorAll('.calc-item'),\n      topForm = document.querySelectorAll('.top-form'),\n      form3Name = document.getElementById('form3-name'),\n      form2Name = document.getElementById('form2-name'),\n      form2Message = document.getElementById('form2-message'),\n      form2Phone = document.getElementById('form2-phone'),\n      form2Email = document.getElementById('form2-email');\n  calcItem.forEach(function (item) {\n    item.addEventListener('input', function () {\n      return item.value = item.value.replace(/\\D/g, '');\n    });\n  });\n  form3Name.addEventListener('input', function () {\n    return form3Name.value = form3Name.value.replace(/\\w/g, '');\n  });\n  form2Name.addEventListener('input', function () {\n    return form2Name.value = form2Name.value.replace(/\\w/g, '');\n  });\n  form2Name.addEventListener('blur', function () {\n    return form2Name.value = form2Name.value.replace(/^[а-я]/g, function (match) {\n      return match.toUpperCase;\n    });\n  });\n  form2Message.addEventListener('input', function () {\n    return form2Message.value = form2Message.value.replace(/\\w/g, '');\n  });\n  form2Phone.addEventListener('input', function () {\n    return form2Phone.value = form2Phone.value.replace(/\\D[^()-]/g, '');\n  });\n  form2Email.addEventListener('input', function () {\n    return form2Email.value = form2Email.value.replace(/[^w\\.@]/gi, '');\n  });\n  topForm.forEach(function (item) {\n    item.addEventListener('blur', function () {\n      return topForm.value = topForm.value.replace(/(^\\s)(\\s\\s)()/g, '(^\\S)(\\s)');\n    });\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calc);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/calc.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar calc = function calc() {\n  var price = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100;\n  var calcBlock = document.querySelector('.calc-block'),\n      calcType = document.querySelector('.calc-type'),\n      calcSquare = document.querySelector('.calc-square'),\n      calcDay = document.querySelector('.calc-day'),\n      calcCount = document.querySelector('.calc-count'),\n      totalValue = document.getElementById('total');\n\n  var countSum = function countSum() {\n    var total = 0,\n        countValue = 1,\n        dayValue = 1;\n    var typeValue = calcType.options[calcType.selectedIndex].value,\n        squareValue = +calcSquare.value;\n\n    if (calcCount.value > 1) {\n      countValue += (calcCount.value - 1) / 10;\n    }\n\n    if (calcDay.value && calcDay.value < 5) {\n      dayValue *= 2;\n    } else if (calcDay.value && calcDay.value < 10) {\n      dayValue *= 1.5;\n    }\n\n    if (typeValue && squareValue) {\n      total = price * typeValue * squareValue * countValue * dayValue;\n    }\n\n    totalValue.textContent = total;\n  };\n\n  calcBlock.addEventListener('change', function (event) {\n    var target = event.target;\n\n    if (target.matches('select') || target.matches('input')) {\n      countSum();\n    }\n  });\n  var calcItem = document.querySelectorAll('.calc-item'),\n      // topForm = document.querySelectorAll('.top-form'),\n  form2Name = document.getElementById('form2-name'),\n      form3Name = document.getElementById('form3-name'),\n      form2Message = document.getElementById('form2-message'),\n      form2Phone = document.getElementById('form2-phone'),\n      form3Phone = document.getElementById('form3-phone'),\n      form2Email = document.getElementById('form2-email'),\n      form3Email = document.getElementById('form3-email');\n  calcItem.forEach(function (item, index) {\n    if (index > 0) {\n      item.addEventListener('input', function () {\n        return item.value = item.value.replace(/\\D/g, '');\n      });\n    }\n  });\n  form2Name.addEventListener('input', function () {\n    return form2Name.value = form2Name.value.replace(/\\w/g, '');\n  });\n  form3Name.addEventListener('input', function () {\n    return form3Name.value = form2Name.value.replace(/\\w/g, '');\n  });\n  form2Name.addEventListener('blur', function () {\n    return form2Name.value = form2Name.value.replace(/^[а-я]/g, function (match) {\n      return match.toUpperCase();\n    });\n  });\n  form3Name.addEventListener('blur', function () {\n    return form3Name.value = form2Name.value.replace(/^[а-я]/g, function (match) {\n      return match.toUpperCase();\n    });\n  });\n  form2Message.addEventListener('input', function () {\n    return form2Message.value = form2Message.value.replace(/[a-z]+/gi, '');\n  });\n  form2Phone.addEventListener('input', function () {\n    return form2Phone.value = form2Phone.value.replace(/\\D[^()-]/g, '');\n  });\n  form2Email.addEventListener('input', function () {\n    form2Email.value = form2Email.value.replace(/[а-я][^\\.-@)]/gi, '');\n  });\n  form3Phone.addEventListener('input', function () {\n    return form3Phone.value = form3Phone.value.replace(/\\D[^()-]/g, '');\n  });\n  form3Email.addEventListener('input', function () {\n    form3Email.value = form3Email.value.replace(/[а-я][^\\.-@)]/gi, '');\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calc);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/calc.js?");
 
 /***/ }),
 
@@ -60,18 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction countTimer(deadline) {\n  var timerHours = document.querySelector('#timer-hours'),\n      timerMinutes = document.querySelector('#timer-minutes'),\n      timerSeconds = document.querySelector('#timer-seconds'),\n      timerNumbers = document.querySelector('.timer-numbers');\n\n  function addZero(i) {\n    if (i < 10) {\n      i = \"0\" + i;\n    }\n\n    return i;\n  }\n\n  function getTimeRemaining() {\n    var dateStop = new Date(deadline).getTime(),\n        dateNow = new Date().getTime(),\n        timeRemaining = (dateStop - dateNow) / 1000,\n        seconds = addZero(Math.floor(timeRemaining % 60)),\n        minutes = addZero(Math.floor(timeRemaining / 60 % 60)),\n        hours = addZero(Math.floor(timeRemaining / 60 / 60));\n    return {\n      timeRemaining: timeRemaining,\n      hours: hours,\n      minutes: minutes,\n      seconds: seconds\n    };\n  }\n\n  function updateClock() {\n    var timer = getTimeRemaining();\n    timerHours.textContent = timer.hours;\n    timerMinutes.textContent = timer.minutes;\n    timerSeconds.textContent = timer.seconds;\n\n    if (timer.timeRemaining > 0) {\n      setTimeout(updateClock, 1000);\n    } else {\n      clearTimeout(updateClock);\n      timerHours.textContent = '';\n      timerMinutes.textContent = '';\n      timerSeconds.textContent = '';\n      var span;\n      span = document.createElement(span);\n      span.innerHTML = \"<h1>До новых акций</h1>\";\n      timerNumbers.append(span);\n    }\n  }\n\n  updateClock();\n}\n\n;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countTimer);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/countTimer.js?");
-
-/***/ }),
-
-/***/ "./src/modules/photos.js":
-/*!*******************************!*\
-  !*** ./src/modules/photos.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar photos = function photos() {\n  var commandPhoto = document.querySelectorAll('.command__photo');\n\n  for (var i = 0; i <= commandPhoto.length - 1; i++) {\n    commandPhoto[i].addEventListener('mouseenter', function (event) {\n      var tmp = event.target.src;\n      event.target.src = event.target.dataset.img;\n      event.target.dataset.img = tmp;\n    });\n    commandPhoto[i].addEventListener('mouseout', function (event) {\n      var tmp = event.target.src;\n      event.target.src = event.target.dataset.img;\n      event.target.dataset.img = tmp;\n    });\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (photos);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/photos.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction countTimer() {\n  var deadline = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '31 march 2021';\n  var timerHours = document.querySelector('#timer-hours'),\n      timerMinutes = document.querySelector('#timer-minutes'),\n      timerSeconds = document.querySelector('#timer-seconds'),\n      timerNumbers = document.querySelector('.timer-numbers');\n\n  function addZero(i) {\n    if (i < 10) {\n      i = \"0\" + i;\n    }\n\n    return i;\n  }\n\n  function getTimeRemaining() {\n    var dateStop = new Date(deadline).getTime(),\n        dateNow = new Date().getTime(),\n        timeRemaining = (dateStop - dateNow) / 1000,\n        seconds = addZero(Math.floor(timeRemaining % 60)),\n        minutes = addZero(Math.floor(timeRemaining / 60 % 60)),\n        hours = addZero(Math.floor(timeRemaining / 60 / 60));\n    return {\n      timeRemaining: timeRemaining,\n      hours: hours,\n      minutes: minutes,\n      seconds: seconds\n    };\n  }\n\n  function updateClock() {\n    var timer = getTimeRemaining();\n    timerHours.textContent = timer.hours;\n    timerMinutes.textContent = timer.minutes;\n    timerSeconds.textContent = timer.seconds;\n\n    if (timer.timeRemaining > 0) {\n      setTimeout(updateClock, 1000);\n    } else {\n      clearTimeout(updateClock);\n      timerHours.textContent = '';\n      timerMinutes.textContent = '';\n      timerSeconds.textContent = '';\n      var span;\n      span = document.createElement(span);\n      span.innerHTML = \"<h1>До новых акций</h1>\";\n      timerNumbers.append(span);\n    }\n  }\n\n  updateClock();\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (countTimer);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/countTimer.js?");
 
 /***/ }),
 
@@ -83,6 +72,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar sendForm = function sendForm() {\n  var errorMessage = 'Что-то пошло не так...',\n      loadMessage = 'Загрузка...',\n      successMessage = 'Спасибо! Мы скоро с вами свяжемся!';\n  var form = document.getElementById('form1');\n  var statusMessage = document.createElement('div');\n  statusMessage.style.cssText = 'font-size: 2rem';\n  form.addEventListener('submit', function (event) {\n    event.preventDefault();\n    form.appendChild(statusMessage);\n    var request = new XMLHttpRequest();\n    request.addEventListener('readystatechange', function () {\n      statusMessage.textContent = loadMessage;\n\n      if (request.readyState !== 4) {\n        return;\n      }\n\n      if (request.status === 200) {\n        statusMessage.textContent = successMessage;\n      } else {\n        statusMessage.textContent = errorMessage;\n        console.error(request.status);\n      }\n    });\n    request.open('POST', './server.php');\n    request.setRequestHeader('Content-Type', 'application/json');\n    var formData = new FormData(form);\n    var body = {};\n    formData.forEach(function (val, key) {\n      body[key] = val;\n    });\n    request.send(JSON.stringify(body));\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendForm);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/sendForm.js?");
+
+/***/ }),
+
+/***/ "./src/modules/sendFormFooter.js":
+/*!***************************************!*\
+  !*** ./src/modules/sendFormFooter.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar sendFormFooter = function sendFormFooter() {\n  var errorMessage = 'Что-то пошло не так...',\n      loadMessage = 'Загрузка...',\n      successMessage = 'Спасибо! Мы скоро с вами свяжемся!';\n  var form = document.getElementById('form3');\n  var statusMessage = document.createElement('div');\n  statusMessage.style.cssText = 'font-size: 2rem';\n  form.addEventListener('submit', function (event) {\n    event.preventDefault();\n    form.appendChild(statusMessage);\n    var request = new XMLHttpRequest();\n    request.addEventListener('readystatechange', function () {\n      statusMessage.textContent = loadMessage;\n\n      if (request.readyState !== 4) {\n        return;\n      }\n\n      if (request.status === 200) {\n        statusMessage.textContent = successMessage;\n      } else {\n        statusMessage.textContent = errorMessage;\n        console.error(request.status);\n      }\n    });\n    request.open('POST', './server.php');\n    request.setRequestHeader('Content-Type', 'application/json');\n    var formData = new FormData(form);\n    var body = {};\n    formData.forEach(function (val, key) {\n      body[key] = val;\n    });\n    request.send(JSON.stringify(body));\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendFormFooter);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/sendFormFooter.js?");
+
+/***/ }),
+
+/***/ "./src/modules/sendFormModal.js":
+/*!**************************************!*\
+  !*** ./src/modules/sendFormModal.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar sendFormModal = function sendFormModal() {\n  var errorMessage = 'Что-то пошло не так...',\n      loadMessage = 'Загрузка...',\n      successMessage = 'Спасибо! Мы скоро с вами свяжемся!';\n  var form = document.getElementById('form2');\n  var statusMessage = document.createElement('div');\n  statusMessage.style.cssText = 'font-size: 2rem';\n  form.addEventListener('submit', function (event) {\n    event.preventDefault();\n    form.appendChild(statusMessage);\n    var request = new XMLHttpRequest();\n    request.addEventListener('readystatechange', function () {\n      statusMessage.textContent = loadMessage;\n\n      if (request.readyState !== 4) {\n        return;\n      }\n\n      if (request.status === 200) {\n        statusMessage.textContent = successMessage;\n      } else {\n        statusMessage.textContent = errorMessage;\n        console.error(request.status);\n      }\n    });\n    request.open('POST', './server.php');\n    request.setRequestHeader('Content-Type', 'application/json');\n    var formData = new FormData(form);\n    var body = {};\n    formData.forEach(function (val, key) {\n      body[key] = val;\n    });\n    request.send(JSON.stringify(body));\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendFormModal);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/sendFormModal.js?");
 
 /***/ }),
 
@@ -104,7 +115,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar tabs = function tabs() {\n  var tabHeader = document.querySelector('.service-header'),\n      tab = tabHeader.querySelectorAll('.service-header-tab'),\n      tabContent = document.querySelectorAll('.service-tab');\n\n  var toggleTabContent = function toggleTabContent(index) {\n    for (var i = 0; i < tabContent.length; i++) {\n      if (index === i) {\n        tabContent[i].classList.remove('d-none');\n      } else {\n        tabContent[i].classList.add('d-none');\n      }\n    }\n  };\n\n  tabHeader.addEventListener('click', function (event) {\n    var target = event.target;\n    target = target.closest('.service-header-tab');\n\n    if (target) {\n      tab.forEach(function (item, i) {\n        if (item === target) {\n          toggleTabContent(i);\n        }\n\n        ;\n      });\n    }\n\n    ;\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/tabs.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar tabs = function tabs() {\n  var tabHeader = document.querySelector('.service-header'),\n      tab = tabHeader.querySelectorAll('.service-header-tab'),\n      tabContent = document.querySelectorAll('.service-tab');\n\n  var toggleTabContent = function toggleTabContent(index) {\n    for (var i = 0; i < tabContent.length; i++) {\n      if (index === i) {\n        tab[i].classList.add('active');\n        tabContent[i].classList.remove('d-none');\n      } else {\n        tab[i].classList.remove('active');\n        tabContent[i].classList.add('d-none');\n      }\n    }\n  };\n\n  tabHeader.addEventListener('click', function (event) {\n    var target = event.target;\n    target = target.closest('.service-header-tab');\n\n    if (target) {\n      tab.forEach(function (item, i) {\n        if (item === target) {\n          toggleTabContent(i);\n        }\n\n        ;\n      });\n    }\n\n    ;\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/tabs.js?");
 
 /***/ }),
 
@@ -115,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var btnMenu = document.querySelector('.menu'),\n      menu = document.querySelector('menu'),\n      closeBtn = document.querySelector('.close-btn'),\n      menuItems = menu.querySelectorAll('ul>li'); //  anchors = document.querySelectorAll('a.scroll-to');\n\n  var handlerMenu = function handlerMenu() {\n    if (!menu.style.transform || menu.style.transform === 'translate(-100%)') {\n      menu.style.transform = \"translate(0)\";\n    } else {\n      menu.style.transform = \"translate(-100%)\";\n    }\n  };\n\n  btnMenu.addEventListener('click', handlerMenu);\n  menu.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target !== menu) {\n      target = target.parentNode;\n    }\n\n    if (target.classList.contains('close-btn')) {\n      handlerMenu();\n    }\n\n    ;\n    menuItems.forEach(function (elem) {\n      if (target) {\n        handlerMenu();\n      }\n    });\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/toggleMenu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar toggleMenu = function toggleMenu() {\n  var btnMenu = document.querySelector('.menu'),\n      menu = document.querySelector('menu'),\n      //  closeBtn = document.querySelector('.close-btn'),\n  menuItems = menu.querySelectorAll('ul>li'); //  anchors = document.querySelectorAll('a.scroll-to');\n\n  var handlerMenu = function handlerMenu() {\n    console.log(menu.style.transform);\n\n    if (!menu.style.transform || menu.style.transform === 'translate(-100%)') {\n      menu.style.transform = 'translate(0)';\n    } else {\n      menu.style.transform = 'translate(-100%)';\n    }\n  };\n\n  btnMenu.addEventListener('click', handlerMenu); // closeBtn.addEventListener('click', handlerMenu);\n\n  menuItems.forEach(function (elem) {\n    return elem.addEventListener('type', handlerMenu);\n  });\n  menu.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target !== menu) {\n      target = target.parentNode;\n    }\n\n    if (target.classList.contains('close-btn')) {\n      handlerMenu();\n    }\n\n    ;\n    menuItems.forEach(function (elem) {\n      if (target) {\n        handlerMenu();\n      }\n    });\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleMenu);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/toggleMenu.js?");
 
 /***/ }),
 
@@ -126,7 +137,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar togglePopUp = function togglePopUp() {\n  var popup = document.querySelector('.popup'),\n      popupBtn = document.querySelectorAll('.popup-btn');\n  popupBtn.forEach(function (elem) {\n    elem.addEventListener('click', function () {\n      popup.style.display = 'block';\n    });\n  });\n  popup.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('popup-close')) {\n      popup.style.display = 'none';\n    } else {\n      target = target.closest('.popup-content');\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (togglePopUp);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/togglePopUp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar togglePopUp = function togglePopUp() {\n  var popup = document.querySelector('.popup'),\n      popupBtn = document.querySelectorAll('.popup-btn'),\n      popupContent = document.querySelector('.popup-content'),\n      width = document.documentElement.clientWidth;\n  console.log(width);\n  var count = 0;\n\n  var popupSlide = function popupSlide() {\n    popupContent.style.left = -350 + 'px';\n    count++;\n    popupContent.style.left = count + 'px';\n\n    if (count < 450 && width > 768) {\n      setTimeout(popupSlide, 5);\n    }\n  };\n\n  popupBtn.forEach(function (elem) {\n    elem.addEventListener('click', function () {\n      popup.style.display = 'block';\n      popupSlide();\n    });\n  });\n  popup.addEventListener('click', function (event) {\n    var target = event.target;\n\n    if (target.classList.contains('popup-close')) {\n      popup.style.display = 'none';\n    } else {\n      target = target.closest('.popup-content');\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (togglePopUp);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/togglePopUp.js?");
+
+/***/ }),
+
+/***/ "./src/modules/twoCommands.js":
+/*!************************************!*\
+  !*** ./src/modules/twoCommands.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar twoCommands = function twoCommands() {\n  var commandPhoto = document.querySelectorAll('.command__photo');\n\n  for (var i = 0; i <= commandPhoto.length - 1; i++) {\n    commandPhoto[i].addEventListener('mouseenter', function (event) {\n      var tmp = event.target.src;\n      event.target.src = event.target.dataset.img;\n      event.target.dataset.img = tmp;\n    });\n    commandPhoto[i].addEventListener('mouseout', function (event) {\n      var tmp = event.target.src;\n      event.target.src = event.target.dataset.img;\n      event.target.dataset.img = tmp;\n    });\n  }\n\n  ;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (twoCommands);\n\n//# sourceURL=webpack://CoursJS-Slider/./src/modules/twoCommands.js?");
 
 /***/ }),
 
@@ -460,8 +482,10 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		if(__webpack_module_cache__[moduleId]) {
-/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			if (cachedModule.error !== undefined) throw cachedModule.error;
+/******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
@@ -471,10 +495,15 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		var execOptions = { id: moduleId, module: module, factory: __webpack_modules__[moduleId], require: __webpack_require__ };
-/******/ 		__webpack_require__.i.forEach(function(handler) { handler(execOptions); });
-/******/ 		module = execOptions.module;
-/******/ 		execOptions.factory.call(module.exports, module, module.exports, execOptions.require);
+/******/ 		try {
+/******/ 			var execOptions = { id: moduleId, module: module, factory: __webpack_modules__[moduleId], require: __webpack_require__ };
+/******/ 			__webpack_require__.i.forEach(function(handler) { handler(execOptions); });
+/******/ 			module = execOptions.module;
+/******/ 			execOptions.factory.call(module.exports, module, module.exports, execOptions.require);
+/******/ 		} catch(e) {
+/******/ 			module.error = e;
+/******/ 			throw e;
+/******/ 		}
 /******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
@@ -521,7 +550,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("6fca7c16f65253612550")
+/******/ 		__webpack_require__.h = () => ("4312f1df74a5668001dc")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -698,6 +727,7 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 			var hot = {
 /******/ 				// private stuff
 /******/ 				_acceptedDependencies: {},
+/******/ 				_acceptedErrorHandlers: {},
 /******/ 				_declinedDependencies: {},
 /******/ 				_selfAccepted: false,
 /******/ 				_selfDeclined: false,
@@ -712,13 +742,18 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 		
 /******/ 				// Module API
 /******/ 				active: true,
-/******/ 				accept: function (dep, callback) {
+/******/ 				accept: function (dep, callback, errorHandler) {
 /******/ 					if (dep === undefined) hot._selfAccepted = true;
 /******/ 					else if (typeof dep === "function") hot._selfAccepted = dep;
-/******/ 					else if (typeof dep === "object" && dep !== null)
-/******/ 						for (var i = 0; i < dep.length; i++)
+/******/ 					else if (typeof dep === "object" && dep !== null) {
+/******/ 						for (var i = 0; i < dep.length; i++) {
 /******/ 							hot._acceptedDependencies[dep[i]] = callback || function () {};
-/******/ 					else hot._acceptedDependencies[dep] = callback || function () {};
+/******/ 							hot._acceptedErrorHandlers[dep[i]] = errorHandler;
+/******/ 						}
+/******/ 					} else {
+/******/ 						hot._acceptedDependencies[dep] = callback || function () {};
+/******/ 						hot._acceptedErrorHandlers[dep] = errorHandler;
+/******/ 					}
 /******/ 				},
 /******/ 				decline: function (dep) {
 /******/ 					if (dep === undefined) hot._selfDeclined = true;
@@ -996,11 +1031,10 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// Promise = chunk loading, 0 = chunk loaded
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"main": 0
 /******/ 		};
-/******/ 		
 /******/ 		
 /******/ 		// no chunk on demand loading
 /******/ 		
@@ -1234,18 +1268,19 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 			var outdatedSelfAcceptedModules = [];
 /******/ 			for (var j = 0; j < outdatedModules.length; j++) {
 /******/ 				var outdatedModuleId = outdatedModules[j];
+/******/ 				var module = __webpack_require__.c[outdatedModuleId];
 /******/ 				if (
-/******/ 					__webpack_require__.c[outdatedModuleId] &&
-/******/ 					__webpack_require__.c[outdatedModuleId].hot._selfAccepted &&
+/******/ 					module &&
+/******/ 					module.hot._selfAccepted &&
 /******/ 					// removed self-accepted modules should not be required
 /******/ 					appliedUpdate[outdatedModuleId] !== warnUnexpectedRequire &&
 /******/ 					// when called invalidate self-accepting is not possible
-/******/ 					!__webpack_require__.c[outdatedModuleId].hot._selfInvalidated
+/******/ 					!module.hot._selfInvalidated
 /******/ 				) {
 /******/ 					outdatedSelfAcceptedModules.push({
 /******/ 						module: outdatedModuleId,
-/******/ 						require: __webpack_require__.c[outdatedModuleId].hot._requireSelf,
-/******/ 						errorHandler: __webpack_require__.c[outdatedModuleId].hot._selfAccepted
+/******/ 						require: module.hot._requireSelf,
+/******/ 						errorHandler: module.hot._selfAccepted
 /******/ 					});
 /******/ 				}
 /******/ 			}
@@ -1333,14 +1368,18 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 								moduleOutdatedDependencies =
 /******/ 									outdatedDependencies[outdatedModuleId];
 /******/ 								var callbacks = [];
+/******/ 								var errorHandlers = [];
 /******/ 								var dependenciesForCallbacks = [];
 /******/ 								for (var j = 0; j < moduleOutdatedDependencies.length; j++) {
 /******/ 									var dependency = moduleOutdatedDependencies[j];
 /******/ 									var acceptCallback =
 /******/ 										module.hot._acceptedDependencies[dependency];
+/******/ 									var errorHandler =
+/******/ 										module.hot._acceptedErrorHandlers[dependency];
 /******/ 									if (acceptCallback) {
 /******/ 										if (callbacks.indexOf(acceptCallback) !== -1) continue;
 /******/ 										callbacks.push(acceptCallback);
+/******/ 										errorHandlers.push(errorHandler);
 /******/ 										dependenciesForCallbacks.push(dependency);
 /******/ 									}
 /******/ 								}
@@ -1348,16 +1387,39 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 									try {
 /******/ 										callbacks[k].call(null, moduleOutdatedDependencies);
 /******/ 									} catch (err) {
-/******/ 										if (options.onErrored) {
-/******/ 											options.onErrored({
-/******/ 												type: "accept-errored",
-/******/ 												moduleId: outdatedModuleId,
-/******/ 												dependencyId: dependenciesForCallbacks[k],
-/******/ 												error: err
-/******/ 											});
-/******/ 										}
-/******/ 										if (!options.ignoreErrored) {
-/******/ 											reportError(err);
+/******/ 										if (typeof errorHandlers[k] === "function") {
+/******/ 											try {
+/******/ 												errorHandlers[k](err, {
+/******/ 													moduleId: outdatedModuleId,
+/******/ 													dependencyId: dependenciesForCallbacks[k]
+/******/ 												});
+/******/ 											} catch (err2) {
+/******/ 												if (options.onErrored) {
+/******/ 													options.onErrored({
+/******/ 														type: "accept-error-handler-errored",
+/******/ 														moduleId: outdatedModuleId,
+/******/ 														dependencyId: dependenciesForCallbacks[k],
+/******/ 														error: err2,
+/******/ 														originalError: err
+/******/ 													});
+/******/ 												}
+/******/ 												if (!options.ignoreErrored) {
+/******/ 													reportError(err2);
+/******/ 													reportError(err);
+/******/ 												}
+/******/ 											}
+/******/ 										} else {
+/******/ 											if (options.onErrored) {
+/******/ 												options.onErrored({
+/******/ 													type: "accept-errored",
+/******/ 													moduleId: outdatedModuleId,
+/******/ 													dependencyId: dependenciesForCallbacks[k],
+/******/ 													error: err
+/******/ 												});
+/******/ 											}
+/******/ 											if (!options.ignoreErrored) {
+/******/ 												reportError(err);
+/******/ 											}
 /******/ 										}
 /******/ 									}
 /******/ 								}
@@ -1374,7 +1436,10 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 						} catch (err) {
 /******/ 							if (typeof item.errorHandler === "function") {
 /******/ 								try {
-/******/ 									item.errorHandler(err);
+/******/ 									item.errorHandler(err, {
+/******/ 										moduleId: moduleId,
+/******/ 										module: __webpack_require__.c[moduleId]
+/******/ 									});
 /******/ 								} catch (err2) {
 /******/ 									if (options.onErrored) {
 /******/ 										options.onErrored({
@@ -1386,8 +1451,8 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 									}
 /******/ 									if (!options.ignoreErrored) {
 /******/ 										reportError(err2);
+/******/ 										reportError(err);
 /******/ 									}
-/******/ 									reportError(err);
 /******/ 								}
 /******/ 							} else {
 /******/ 								if (options.onErrored) {
@@ -1468,11 +1533,9 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 			});
 /******/ 		};
 /******/ 		
-/******/ 		// no deferred startup
+/******/ 		// no on chunks loaded
 /******/ 		
 /******/ 		// no jsonp function
-/******/ 		
-/******/ 		// no deferred startup
 /******/ 	})();
 /******/ 	
 /************************************************************************/

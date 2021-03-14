@@ -1,5 +1,5 @@
 const calc = (price = 100) => {
-const calcBlolck = document.querySelector('.calc-block'),
+  const calcBlock = document.querySelector('.calc-block'),
       calcType = document.querySelector('.calc-type'),
       calcSquare = document.querySelector('.calc-square'),
       calcDay = document.querySelector('.calc-day'),
@@ -29,7 +29,7 @@ const calcBlolck = document.querySelector('.calc-block'),
     totalValue.textContent = total;
   };
 
-     calcBlolck.addEventListener('change', (event) =>{
+     calcBlock.addEventListener('change', (event) =>{
         const target = event.target;
          if (target.matches('select') || target.matches('input')){
         countSum();
@@ -37,28 +37,43 @@ const calcBlolck = document.querySelector('.calc-block'),
    });
 let 
 calcItem = document.querySelectorAll('.calc-item'), 
-topForm = document.querySelectorAll('.top-form'),
-form3Name = document.getElementById('form3-name'),
+// topForm = document.querySelectorAll('.top-form'),
 form2Name = document.getElementById('form2-name'),
+form3Name = document.getElementById('form3-name'),
 form2Message = document.getElementById('form2-message'),
 form2Phone = document.getElementById('form2-phone'),
-form2Email = document.getElementById('form2-email');
+form3Phone = document.getElementById('form3-phone'),
+form2Email = document.getElementById('form2-email'),
+form3Email = document.getElementById('form3-email');
 
-
-calcItem.forEach((item) => {
-  item.addEventListener('input', () => item.value = item.value.replace(/\D/g, ''));
+calcItem.forEach((item, index) => {
+  if(index > 0){
+    item.addEventListener('input', () => item.value = item.value.replace(/\D/g, ''));
+  }
 });
-form3Name.addEventListener('input', () => form3Name.value = form3Name.value.replace(/\w/g, ''));
-form2Name.addEventListener('input', () => form2Name.value = form2Name.value.replace(/\w/g, ''));
-form2Name.addEventListener('blur', () => form2Name.value = form2Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase));
-form2Message.addEventListener('input', () => form2Message.value = form2Message.value.replace(/\w/g, ''));
-form2Phone.addEventListener('input', () => form2Phone.value = form2Phone.value.replace(/\D[^()-]/g, ''));
-form2Email.addEventListener('input', () =>form2Email.value =  
-form2Email.value.replace(/[^w\.@]/gi, ''));
 
-topForm.forEach((item) => {
-  item.addEventListener('blur', () => 
-topForm.value = topForm.value.replace(/(^\s)(\s\s)()/g, '(^\S)(\s)'));
-})
+form2Name.addEventListener('input', () =>form2Name.value = form2Name.value.replace(/\w/g, ''));
+form3Name.addEventListener('input', () =>form3Name.value = form2Name.value.replace(/\w/g, ''));
+
+form2Name.addEventListener('blur', () => 
+form2Name.value = form2Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase()));
+form3Name.addEventListener('blur', () => 
+form3Name.value = form2Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase()));
+
+
+
+form2Message.addEventListener('input', () => form2Message.value = form2Message.value.replace(/[a-z]+/gi, ''));
+form2Phone.addEventListener('input', () => form2Phone.value = form2Phone.value.replace(/\D[^()-]/g, ''));
+form2Email.addEventListener('input', () =>{ 
+  form2Email.value = form2Email.value.replace(/[а-я][^\.-@)]/gi, '');
+});
+
+form3Phone.addEventListener('input', () => form3Phone.value = form3Phone.value.replace(/\D[^()-]/g, ''));
+form3Email.addEventListener('input', () =>{ 
+  form3Email.value = form3Email.value.replace(/[а-я][^\.-@)]/gi, '');
+});
+
+
+
  };
  export default calc;
