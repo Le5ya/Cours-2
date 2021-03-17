@@ -7,9 +7,6 @@ import slider from './modules/slider';
 import twoCommands from './modules/twoCommands';
 import calc from './modules/calc';
 import sendForm from './modules/sendForm';
-import sendFormModal from './modules/sendFormModal';
-import sendFormFooter from './modules/sendFormFooter';
-
 //Timer
 countTimer();
 // меню
@@ -27,9 +24,6 @@ twoCommands();
  //send-ajax-form
  sendForm();
 
- sendFormModal();
-
- sendFormFooter();
 
 
 
