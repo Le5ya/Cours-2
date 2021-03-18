@@ -10,16 +10,16 @@ let count = 0;
  
 let popupSlide = function(){
  popupContent.forEach((elem) =>{
- elem.style.left = -350 + 'px';
+ elem.style.left = -100 + '%';
   count++;
-  elem.style.left = count * 3 +'px';
- if(count < 150) {
+  elem.style.left = count +'%';
+ if(count < 40) {
   setTimeout(popupSlide, 5); 
    }
  }); 
 };      
  popupBtn.forEach((elem) => {
-  elem.addEventListener('click', () => {
+  elem.addEventListener('click', () => {            
       popup.style.display = 'block';
        popupSlide();
         });

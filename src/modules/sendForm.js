@@ -66,7 +66,7 @@ const sendTopForm =() => {
               console.error(request.status);
         }
       });
-      form.reset();
+      
        request.open('POST', './server.php');
        request.setRequestHeader('Content-Type', 'application/json');
        const formData = new FormData(form);
@@ -76,6 +76,7 @@ const sendTopForm =() => {
        body[key] = val;
        });
        request.send(JSON.stringify(body));
+       form.reset();
    
     });
  }; 
@@ -108,7 +109,6 @@ const sendFormModal = () => {
               console.error(request.status);
         }
       });
-      form.reset();
        request.open('POST', './server.php');
        request.setRequestHeader('Content-Type', 'application/json');
        const formData = new FormData(form);
@@ -119,6 +119,7 @@ const sendFormModal = () => {
        });
 
        request.send(JSON.stringify(body));
+       form.reset();
 
    
     });
@@ -152,7 +153,7 @@ sendFormModal();
               console.error(request.status);
         }
       });
-      form.reset()
+      
        request.open('POST', './server.php');
        request.setRequestHeader('Content-Type', 'application/json');
        const formData = new FormData(form);
@@ -163,6 +164,7 @@ sendFormModal();
        });
 
        request.send(JSON.stringify(body));
+       form.reset();
    
     });
  }; 
