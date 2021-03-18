@@ -21,7 +21,7 @@ form1Name.value = form1Name.value.replace(/^[а-я]/g, (match) => match.toUpperC
 form2Name.addEventListener('blur', () => 
 form2Name.value = form2Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase()));
 form3Name.addEventListener('blur', () => 
-form3Name.value = form2Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase()));
+form3Name.value = form3Name.value.replace(/^[а-я]/g, (match) => match.toUpperCase()));
 
 form1Phone.addEventListener('input', () => form1Phone.value = form1Phone.value.replace(/\D[^()-]/g, ''));
 form1Email.addEventListener('input', () =>{ 
@@ -43,7 +43,6 @@ const sendTopForm =() => {
    const errorMessage = 'Что-то пошло не так...',
          loadMessage = 'Загрузка...',
          successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
-
     const form = document.getElementById('form1');
 
     const statusMessage = document.createElement('div');
@@ -63,7 +62,7 @@ const sendTopForm =() => {
               statusMessage.textContent = successMessage;
             }else {
               statusMessage.textContent = errorMessage; 
-              console.error(request.status);
+              
         }
       });
       
@@ -77,7 +76,6 @@ const sendTopForm =() => {
        });
        request.send(JSON.stringify(body));
        form.reset();
-   
     });
  }; 
  sendTopForm();
@@ -86,9 +84,7 @@ const sendFormModal = () => {
    const errorMessage = 'Что-то пошло не так...',
          loadMessage = 'Загрузка...',
          successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
-
-    const form = document.getElementById('form2');
-
+    const form = document.getElementById('form3');
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 2rem';
      
@@ -106,31 +102,24 @@ const sendFormModal = () => {
               statusMessage.textContent = successMessage;
             }else {
               statusMessage.textContent = errorMessage; 
-              console.error(request.status);
         }
       });
        request.open('POST', './server.php');
        request.setRequestHeader('Content-Type', 'application/json');
        const formData = new FormData(form);
        let body = {};
-
        formData.forEach((val, key) => {
        body[key] = val;
        });
-
-       request.send(JSON.stringify(body));
+        request.send(JSON.stringify(body));
        form.reset();
-
-   
     });
  };
 sendFormModal();
-
   const sendFormFooter = () => {
    const errorMessage = 'Что-то пошло не так...',
          loadMessage = 'Загрузка...',
          successMessage = 'Спасибо! Мы скоро с вами свяжемся!';
-
     const form = document.getElementById('form3');
 
     const statusMessage = document.createElement('div');
@@ -150,22 +139,17 @@ sendFormModal();
               statusMessage.textContent = successMessage;
             }else {
               statusMessage.textContent = errorMessage; 
-              console.error(request.status);
         }
       });
-      
        request.open('POST', './server.php');
        request.setRequestHeader('Content-Type', 'application/json');
        const formData = new FormData(form);
        let body = {};
-
        formData.forEach((val, key) => {
        body[key] = val;
        });
-
        request.send(JSON.stringify(body));
        form.reset();
-   
     });
  }; 
  sendFormFooter();

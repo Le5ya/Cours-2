@@ -13,6 +13,7 @@
        }
        Dot();
        const dot = document.querySelectorAll('.dot');
+       dot[0].classList.add('dot-active');
        
       let currentSlide = 0,
           interval;

@@ -6,7 +6,7 @@ const toggleMenu = () => {
         //  anchors = document.querySelectorAll('a.scroll-to');
 
 const handlerMenu = () => {
-  console.log(menu.style.transform)
+
   if(!menu.style.transform || menu.style.transform ==='translate(-100%)'){
      menu.style.transform = 'translate(0)';
     } else{
